@@ -1,0 +1,10 @@
+.a4-bound {
+    background-color: red;
+    width: 296mm;
+    border: 1mm solid black;
+}
+
+.number {
+    top: 50mm;
+    left: 15mm;
+}
