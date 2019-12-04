@@ -4,28 +4,42 @@
         <title>Some test title</title>
         <meta name="author" content="Adrian Pasik">
         <meta name="description" content="A4 invoice printing">
-        <link href="sales.css" rel="stylesheet">
+        <link href="../common/common.css" rel="stylesheet">
     </head>
     <body>
         <script src="sales.js"></script>
-        <div class="a4-bound">test sample skeleton
-            <div class="number">
-                Faktura nr
+        <div class="a4-bound">
+            <div class="headers-row">
+                <div class="number-value">Faktura nr</div>
             </div>
-            <div class="invoke-date">2019-02-11</div>
-            <div class="sales-date"></div>
-            <table>
-                <thead>
-                    <th>Lp.</th>
-                    <th>Nazwa</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Usługa 1</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="buyer-seller-info">
+                buyer seller info
+            </div>
+
+            <div class="main-table">
+                <table>
+                        <thead>
+                            <th>Lp.</th>
+                            <th>Nazwa</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Usługa 1</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+            
+            <div class="payment-details">
+                <div>Do zapaty: xxx</div>
+                <div>Slownie: xxx</div>
+            </div>
+            <div class="footer">
+                <div class="footer-info-left">asdasd</div>
+                <div class="footer-info-right">Imię i nazwisko osoby uprawnionej <br> do odbioru faktury VAT</div>
+            </div>
+        </div>
 
         </div>
     </body>

@@ -1,0 +1,43 @@
+.a4-bound {
+    width: 210mm;
+    border: 1mm solid black;
+
+}
+
+.headers-row {
+    background-color: lightpink;
+    position: static;
+    height: 30mm;
+}
+
+.buyer-seller-info {
+    background-color: lightsalmon;
+    position: static;
+}
+
+.main-table {
+    background-color: lightgreen;
+    position: static;
+}
+
+.payment-details {
+    background-color: lightskyblue;
+    position: static;
+}
+
+.footer {
+    background-color: burlywood;
+    position: static;
+}
+
+.footer-info-left {
+    float: left;
+    width: 10%;
+    background-color: darkblue;
+}
+
+.footer-info-right {
+    margin-left: 10%;
+    background-color: cyan;
+    text-align: center;
+}
