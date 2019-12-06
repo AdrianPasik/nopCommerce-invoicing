@@ -1,7 +1,9 @@
 .a4-bound {
+    padding-left: 10mm;
+    padding-right: 10mm;
+    padding-top: 15mm;
     width: 210mm;
     border: 1mm solid black;
-
 }
 
 .headers-row {
@@ -10,9 +12,69 @@
     height: 30mm;
 }
 
+.headers-row-left {
+    text-align: left;
+    width: 50%;
+    float: left;
+}
+
+.headers-row-right {
+    margin-left: 50%;
+}
+
+.original-copy {
+    font-size: 10pt;
+}
+
+.dates-left {
+    text-align: right;
+    width: 49%;
+    float: left;
+}
+
+.dates-right {
+    margin-left: 51%;
+}
+
+.number-value {
+    font-size: 20pt;
+}
+
 .buyer-seller-info {
     background-color: lightsalmon;
     position: static;
+    min-height: 30mm;
+}
+
+.buyer-caption {
+    
+    padding-left: 10mm;
+}
+
+.buyer-details {
+    
+    padding-left: 15mm;
+}
+
+.seller-caption {
+    
+    padding-left: 10mm;
+}
+
+.seller-details {
+    
+    padding-left: 15mm;
+}
+
+.buyer-seller-left {
+    text-align: left;
+    width: 50%;
+    float: left;
+}
+
+.buyer-seller-right {
+    margin-left: 50%;
+    text-align: left;
 }
 
 .main-table {
@@ -23,6 +85,17 @@
 .payment-details {
     background-color: lightskyblue;
     position: static;
+}
+
+.payment-details-left {
+    text-align: right;
+    width: 40%;
+    float: left;
+}
+
+.payment-details-right {
+    text-align: left;
+    margin-left: 40%;
 }
 
 .footer {
