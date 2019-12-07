@@ -79,15 +79,19 @@
     position: static;
 }
 
-.main-table > table {
+.invoice-details-table {
     font-size: 8pt;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
 }
 
-table, th, td {
+.invoice-details-table th, .invoice-details-table td {
     border: 1px solid black;
+}
+
+.no-border {
+    border: 0px !important;
 }
 
 th {
