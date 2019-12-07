@@ -1,0 +1,22 @@
+{
+  "name": "a4-invoice",
+  "version": "0.0.1",
+  "description": "This repository is responsible for creation of invoice based on NopCommerce order csv file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianPasik/a4-invoice.git"
+  },
+  "author": "Adrian Pasik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianPasik/a4-invoice/issues"
+  },
+  "homepage": "https://github.com/AdrianPasik/a4-invoice#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
