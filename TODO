@@ -1,1 +1,3 @@
 - logic must do exact the same amount of lines
+- logic must have max length in one line
+    Maybe reserver 10 lines or sth and leave some space just in case ?
