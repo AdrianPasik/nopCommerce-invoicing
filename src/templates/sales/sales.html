@@ -4,7 +4,156 @@
         <title>Some test title</title>
         <meta name="author" content="Adrian Pasik">
         <meta name="description" content="A4 invoice printing">
-        <link href="../common/common.css" rel="stylesheet">
+        <style>
+            @page {
+    size: A4;
+    margin: 0;
+  }
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+    /* ... the rest of the rules ... */
+}
+
+html, body {
+    width: 210mm;
+}
+
+.a4-bound {
+    padding-left: 10mm;
+    padding-right: 10mm;
+    padding-top: 15mm;
+    width: 210mm;
+    border: 1mm solid black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.headers-row {
+    background-color: lightpink;
+    position: static;
+    height: 30mm;
+}
+
+.headers-row-left {
+    text-align: left;
+    width: 50%;
+    float: left;
+}
+
+.headers-row-right {
+    margin-left: 50%;
+}
+
+.original-copy {
+    font-size: 10pt;
+}
+
+.dates-left {
+    text-align: right;
+    width: 49%;
+    float: left;
+}
+
+.dates-right {
+    margin-left: 51%;
+}
+
+.number-value {
+    font-size: 20pt;
+}
+
+.buyer-seller-info {
+    background-color: lightsalmon;
+    position: static;
+    min-height: 30mm;
+}
+
+.buyer-caption {
+    padding-left: 10mm;
+}
+
+.buyer-details {
+    padding-left: 15mm;
+}
+
+.seller-caption {
+    padding-left: 10mm;
+}
+
+.seller-details {
+    padding-left: 15mm;
+}
+
+.buyer-seller-left {
+    text-align: left;
+    width: 50%;
+    float: left;
+}
+
+.buyer-seller-right {
+    margin-left: 50%;
+    text-align: left;
+}
+
+.main-table {
+    background-color: lightgreen;
+    position: static;
+}
+
+.invoice-details-table {
+    font-size: 8pt;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.invoice-details-table th, .invoice-details-table td {
+    border: 1px solid black;
+}
+
+.no-border {
+    border: 0px !important;
+}
+
+th {
+    height: 20mm;
+}
+
+.payment-details {
+    background-color: lightskyblue;
+    position: static;
+}
+
+.payment-details-left {
+    text-align: right;
+    width: 40%;
+    float: left;
+}
+
+.payment-details-right {
+    text-align: left;
+    margin-left: 40%;
+}
+
+.footer {
+    background-color: burlywood;
+    position: static;
+}
+
+.footer-info-left {
+    float: left;
+    width: 10%;
+    background-color: darkblue;
+}
+
+.footer-info-right {
+    margin-left: 10%;
+    background-color: cyan;
+    text-align: center;
+}
+        </style>
     </head>
     <body>
         <script src="sales.js"></script>
