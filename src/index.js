@@ -5,9 +5,17 @@ const proc = new processing();
 const app = express()
 const port = 3000
 
+let infoProperties = {
+    "sell-date": "33/10/2019"
+}
+
 app.get('/faktura', (req, response) => {
     fs.readFile("templates/sales.html", function (err, data) {
-        data = proc.addDates(data);
+        for(var prop in infoProperties) {
+            if(infoProperties.hasOwnProperty(prop)) {
+                data = data.toString().replace("{{" + prop + "}}", infoProperties[prop]);
+            }
+        }
 
         response.writeHead(200, {'Content-Type': 'text/html'});
         response.write(data);
