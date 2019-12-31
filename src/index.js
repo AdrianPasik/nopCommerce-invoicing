@@ -25,14 +25,51 @@ let infoProperties = {
     "buyer-info-5": "5 line",
     "buyer-info-6": "6 line",
     "buyer-info-7": "7 line",
-    "buyer-info-8": "8 line"
+    "buyer-info-8": "8 line",
+    "payment-amount": "125 zł",
+    "payment-amount-words": "sto dwadzieścia pięć",
+    "payment-way": "Przelew",
+    "payment-delay-period": "30 dni",
+    "payment-bank-account": "54 5454545454",
+    "payment-swift-code": "INGBPLPW",
+    "name-surname-authorized-to-receive-invoice-line1": "Imię i nazwisko osoby uprawnionej",
+    "name-surname-authorized-to-receive-invoice-line2": "do odbioru faktury VAT"
+};
 
-}
+let valuesAndTaxes = 
+    [{
+        "lp": "1",
+        "name": "name ",
+        "quantity": "1",
+        "unit-of-measure": "godz",
+        "net-price": "5,00",
+        "vat-rate": "23",
+        "vat-amount": "1,15",
+        "gross-amount": "6,15"
+
+    }   
+    ];
+
+let totalSum = [{
+        "grand-total-caption": "RAZEM",
+        "grand-total-net": "5,00",
+        "grand-total-vat": "1,15",
+        "grand-total-gross": "6,15"
+    },
+    {
+        "grand-total-caption": "W tym",
+        "grand-total-net": "5,00",
+        "grand-total-vat": "1,15",
+        "grand-total-gross": "6,15"
+    }
+];
+
+
 
 app.get('/faktura', (req, response) => {
     fs.readFile("templates/sales.html", function (err, data) {
-        for(var prop in infoProperties) {
-            if(infoProperties.hasOwnProperty(prop)) {
+        for (var prop in infoProperties) {
+            if (infoProperties.hasOwnProperty(prop)) {
                 data = data.toString().replace("{{" + prop + "}}", infoProperties[prop]);
             }
         }

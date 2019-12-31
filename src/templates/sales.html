@@ -156,7 +156,6 @@ th {
         </style>
     </head>
     <body>
-        <script src="sales.js"></script>
         <div class="a4-bound">
             <div class="headers-row">
                 <div class="headers-row-left">
@@ -246,18 +245,18 @@ th {
                     SWIFT:<br>
                 </div>
                 <div class="payment-details-right">
-                    125 zł<br>
-                    sto dwadzieścia pięć<br>
+                    {{payment-amount}}<br>
+                    {{payment-amount-words}}<br>
                     <br>
-                    Przelew<br>
-                    30 dni<br>
-                    54 5454545454<br>
-                    INGBPLPW <br>
+                    {{payment-way}}<br>
+                    {{payment-delay-period}}<br>
+                    {{payment-bank-account}}<br>
+                    {{payment-swift-code}} <br>
                 </div>
             </div>
             <div class="footer">
                 <div class="footer-info-left"></div>
-                <div class="footer-info-right">Imię i nazwisko osoby uprawnionej <br> do odbioru faktury VAT</div>
+                <div class="footer-info-right">{{name-surname-authorized-to-receive-invoice-line1}}<br>{{name-surname-authorized-to-receive-invoice-line2}}</div>
             </div>
         </div>
 
