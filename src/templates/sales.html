@@ -161,14 +161,18 @@ th {
             <div class="headers-row">
                 <div class="headers-row-left">
                     <div class="number-value">Faktura nr</div>
-                    <div class="original-copy">Oryginał</div>
+                    <div class="original-copy">{{original-copy}}</div>
                 </div>
                 <div class="headers-row-right">
                     <div class="dates-left">
+                        Data wystawienia<br>
+                        Miejsce wystawienia<br>
                         Data sprzedaży
                     </div>
                     <div class="dates-right">
-                        {{sell-date}}
+                        {{issue-date}} <br>
+                        {{place-of-issue}} <br>
+                        {{sell-date}} <br>
                     </div>
                 </div>
             </div>
@@ -178,7 +182,7 @@ th {
                         Sprzedawca:
                     </div>
                     <div class="seller-details">
-                        lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span><br>line<br>line<br>line<br>line<br>line<br>
+                        {{seller-info-1}}<br>{{seller-info-2}}<br>{{seller-info-3}}<br>{{seller-info-4}}<br>{{seller-info-5}}<br>{{seller-info-6}}<br>{{seller-info-7}}<br>{{seller-info-8}}<br>
                     </div>
                 </div>
                 <div class="buyer-seller-right">
@@ -186,7 +190,7 @@ th {
                         Nabywca:
                     </div>
                     <div class="buyer-details">
-                        line<br>line<br>line<br>line<br>line<br>line<br>
+                        {{buyer-info-1}}<br>{{buyer-info-2}}<br>{{buyer-info-3}}<br>{{buyer-info-4}}<br>{{buyer-info-5}}<br>{{buyer-info-6}}<br>{{buyer-info-7}}<br>{{buyer-info-8}}<br>
                     </div>
                 </div>
             </div>
@@ -258,5 +262,6 @@ th {
         </div>
 
         </div>
+        <svg width="128" height="128" class="octicon octicon-gear" viewBox="0 0 14 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M14 8.77v-1.6l-1.94-.64-.45-1.09.88-1.84-1.13-1.13-1.81.91-1.09-.45-.69-1.92h-1.6l-.63 1.94-1.11.45-1.84-.88-1.13 1.13.91 1.81-.45 1.09L0 7.23v1.59l1.94.64.45 1.09-.88 1.84 1.13 1.13 1.81-.91 1.09.45.69 1.92h1.59l.63-1.94 1.11-.45 1.84.88 1.13-1.13-.92-1.81.47-1.09L14 8.75v.02zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>
     </body>
 </html>

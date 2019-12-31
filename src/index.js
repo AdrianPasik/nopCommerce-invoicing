@@ -6,7 +6,27 @@ const app = express()
 const port = 3000
 
 let infoProperties = {
-    "sell-date": "33/10/2019"
+    "sell-date": "33/10/2019",
+    "place-of-issue": "Warszawa",
+    "issue-date": "33/10/2019",
+    "original-copy": "Oryginał",
+    "seller-info-1": "1 line",
+    "seller-info-2": "2 line",
+    "seller-info-3": "3 line",
+    "seller-info-4": "4 line",
+    "seller-info-5": "5 line",
+    "seller-info-6": "6 line",
+    "seller-info-7": "7 line",
+    "seller-info-8": "8 line",
+    "buyer-info-1": "1 line",
+    "buyer-info-2": "2 line",
+    "buyer-info-3": "3 line",
+    "buyer-info-4": "4 line",
+    "buyer-info-5": "5 line",
+    "buyer-info-6": "6 line",
+    "buyer-info-7": "7 line",
+    "buyer-info-8": "8 line"
+
 }
 
 app.get('/faktura', (req, response) => {
