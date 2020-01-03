@@ -54,12 +54,14 @@ let valuesAndTaxes =
 const totalSum = [{
         "grand-total-caption": "RAZEM",
         "grand-total-net": "5,00",
+        "grand-total-vat-rate": "X",
         "grand-total-vat": "1,15",
         "grand-total-gross": "6,15"
     },
     {
         "grand-total-caption": "W tym",
         "grand-total-net": "5,00",
+        "grand-total-vat-rate": "23",
         "grand-total-vat": "1,15",
         "grand-total-gross": "6,15"
     }
@@ -80,7 +82,7 @@ function applyTotalRows(rawHtml) {
     var html = "";
     for (var i = 0; i < totalSum.length; i++) {
         var item = totalSum[i];
-        html += "<tr><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td>" + item["grand-total-caption"] + "</td><td>Usługa 1</td><td>Usługa 1</td><td>Usługa 1</td><td>Usługa 1</td></tr>"
+        html += "<tr><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td>" + item["grand-total-caption"] + "</td><td>" + item["grand-total-net"] + "</td><td>" + item["grand-total-vat-rate"] + "</td><td>" + item["grand-total-vat"] + "</td><td>" + item["grand-total-gross"] + "</td></tr>"
     }
 
     rawHtml = rawHtml.toString().replace("{{total-rows}}", html);
@@ -95,6 +97,7 @@ app.get('/faktura', (req, response) => {
             }
         }
         data = applyDataRows(data);
+        data = applyTotalRows(data);
         response.writeHead(200, {'Content-Type': 'text/html'});
         response.write(data);
         response.end();
