@@ -43,6 +43,7 @@ let valuesAndTaxes =
         "quantity": "1",
         "unit-of-measure": "godz",
         "net-price": "5,00",
+        "net-value": "5,00",
         "vat-rate": "23",
         "vat-amount": "1,15",
         "gross-amount": "6,15"
@@ -50,7 +51,7 @@ let valuesAndTaxes =
     }   
     ];
 
-let totalSum = [{
+const totalSum = [{
         "grand-total-caption": "RAZEM",
         "grand-total-net": "5,00",
         "grand-total-vat": "1,15",
@@ -64,7 +65,27 @@ let totalSum = [{
     }
 ];
 
+function applyDataRows(rawHtml) {
+    var html = "";
+    for (var i = 0; i < valuesAndTaxes.length; i++) {
+        var item = valuesAndTaxes[i];
+        html += "<tr><td>" + item["lp"] + "</td><td>" + item["name"] + "</td><td>" + item["quantity"] + "</td><td>" + item["unit-of-measure"] +  "</td><td>" + item["net-price"] + "</td><td>" + item["net-value"] + "</td><td>" + item["vat-rate"] + "</td><td>" + item["vat-amount"] + "</td><td>" + item["gross-amount"] + "</td></tr>"
+    }
 
+    rawHtml = rawHtml.toString().replace("{{data-rows}}", html);
+    return rawHtml;
+}
+
+function applyTotalRows(rawHtml) {
+    var html = "";
+    for (var i = 0; i < totalSum.length; i++) {
+        var item = totalSum[i];
+        html += "<tr><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td>" + item["grand-total-caption"] + "</td><td>Usługa 1</td><td>Usługa 1</td><td>Usługa 1</td><td>Usługa 1</td></tr>"
+    }
+
+    rawHtml = rawHtml.toString().replace("{{total-rows}}", html);
+    return rawHtml;
+}
 
 app.get('/faktura', (req, response) => {
     fs.readFile("templates/sales.html", function (err, data) {
@@ -73,7 +94,7 @@ app.get('/faktura', (req, response) => {
                 data = data.toString().replace("{{" + prop + "}}", infoProperties[prop]);
             }
         }
-
+        data = applyDataRows(data);
         response.writeHead(200, {'Content-Type': 'text/html'});
         response.write(data);
         response.end();
