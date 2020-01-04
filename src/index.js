@@ -71,7 +71,7 @@ function applyDataRows(rawHtml) {
     var html = "";
     for (var i = 0; i < valuesAndTaxes.length; i++) {
         var item = valuesAndTaxes[i];
-        html += "<tr><td>" + item["lp"] + "</td><td>" + item["name"] + "</td><td>" + item["quantity"] + "</td><td>" + item["unit-of-measure"] +  "</td><td>" + item["net-price"] + "</td><td>" + item["net-value"] + "</td><td>" + item["vat-rate"] + "</td><td>" + item["vat-amount"] + "</td><td>" + item["gross-amount"] + "</td></tr>"
+        html += "<tr><td>" + item["lp"] + "</td><td style='width: 70mm;'>" + item["name"] + "</td><td>" + item["quantity"] + "</td><td>" + item["unit-of-measure"] +  "</td><td>" + item["net-price"] + "</td><td>" + item["net-value"] + "</td><td>" + item["vat-rate"] + "</td><td>" + item["vat-amount"] + "</td><td>" + item["gross-amount"] + "</td></tr>"
     }
 
     rawHtml = rawHtml.toString().replace("{{data-rows}}", html);
