@@ -90,7 +90,7 @@ function applyTotalRows(rawHtml) {
 }
 
 app.get('/faktura', (req, response) => {
-    fs.readFile("templates/sales.html", function (err, data) {
+    fs.readFile("templates/pl-sales-template.html", function (err, data) {
         for (var prop in infoProperties) {
             if (infoProperties.hasOwnProperty(prop)) {
                 data = data.toString().replace("{{" + prop + "}}", infoProperties[prop]);
