@@ -102,8 +102,6 @@ app.get('/faktura', (req, response) => {
         response.write(data);
         response.end();
      });
-    //res.sendFile('templates/sales/sales.html', { root: __dirname });
-    //res.send('Hello World!');
 });
 
 app.post('/fileupload', (req, response) => {
