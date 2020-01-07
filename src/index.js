@@ -106,5 +106,20 @@ app.get('/faktura', (req, response) => {
     //res.send('Hello World!');
 });
 
+app.post('/fileupload', (req, response) => {
+    response.write('file uploaded');
+    response.end();
+});
+
+app.get('/upload', (req, response) => {
+    console.log('reached upload');
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+    response.write('<input type="file" name="csvfile"><br>');
+    response.write('<input type="submit">');
+    response.write('</form>');
+    response.end();
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
