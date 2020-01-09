@@ -31,11 +31,8 @@ let infoProperties = {
     "payment-bank-account": "54 5454545454",
     "payment-swift-code": "INGBPLPW",
     "name-surname-authorized-to-receive-invoice-line1": "Imię i nazwisko osoby uprawnionej",
-    "name-surname-authorized-to-receive-invoice-line2": "do odbioru faktury VAT"
-};
-
-let valuesAndTaxes = 
-    [{
+    "name-surname-authorized-to-receive-invoice-line2": "do odbioru faktury VAT",
+    "valuesAndTaxes": [{
         "lp": "1",
         "name": "name ",
         "quantity": "1",
@@ -46,10 +43,8 @@ let valuesAndTaxes =
         "vat-amount": "1,15",
         "gross-amount": "6,15"
 
-    }   
-    ];
-
-const totalSum = [{
+    }],
+    "totalSum": [{
         "grand-total-caption": "RAZEM",
         "grand-total-net": "5,00",
         "grand-total-vat-rate": "X",
@@ -63,12 +58,14 @@ const totalSum = [{
         "grand-total-vat": "1,15",
         "grand-total-gross": "6,15"
     }
-];
+]
+
+};
 
 function applyDataRows(rawHtml) {
     var html = "";
-    for (var i = 0; i < valuesAndTaxes.length; i++) {
-        var item = valuesAndTaxes[i];
+    for (var i = 0; i < infoProperties["valuesAndTaxes"].length; i++) {
+        var item = infoProperties["valuesAndTaxes"][i];
         html += "<tr><td>" + item["lp"] + "</td><td style='width: 70mm;'>" + item["name"] + "</td><td>" + item["quantity"] + "</td><td>" + item["unit-of-measure"] +  "</td><td>" + item["net-price"] + "</td><td>" + item["net-value"] + "</td><td>" + item["vat-rate"] + "</td><td>" + item["vat-amount"] + "</td><td>" + item["gross-amount"] + "</td></tr>"
     }
 
@@ -78,8 +75,8 @@ function applyDataRows(rawHtml) {
 
 function applyTotalRows(rawHtml) {
     var html = "";
-    for (var i = 0; i < totalSum.length; i++) {
-        var item = totalSum[i];
+    for (var i = 0; i < infoProperties["totalSum"].length; i++) {
+        var item = infoProperties["totalSum"][i];
         html += "<tr><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td>" + item["grand-total-caption"] + "</td><td>" + item["grand-total-net"] + "</td><td>" + item["grand-total-vat-rate"] + "</td><td>" + item["grand-total-vat"] + "</td><td>" + item["grand-total-gross"] + "</td></tr>"
     }
 
