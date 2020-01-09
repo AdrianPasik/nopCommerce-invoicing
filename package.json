@@ -4,7 +4,7 @@
   "description": "This repository is responsible for creation of invoice based on NopCommerce order csv file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/AdrianPasik/a4-invoice#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "tap": "14.10.5"
   }
 }
