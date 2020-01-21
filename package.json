@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AdrianPasik/a4-invoice#readme",
   "dependencies": {
+    "csv-parse": "4.8.5",
     "express": "4.17.1"
   },
   "devDependencies": {
