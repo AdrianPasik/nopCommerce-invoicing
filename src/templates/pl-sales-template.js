@@ -38,7 +38,7 @@ let infoProperties = {
         "quantity": "1",
         "unit-of-measure": "godz",
         "net-price": "5,00",
-        "net-value": "5,00",
+        "net-amount": "5,00",
         "vat-rate": "23",
         "vat-amount": "1,15",
         "gross-amount": "6,15"
@@ -66,7 +66,7 @@ function applyDataRows(rawHtml) {
     var html = "";
     for (var i = 0; i < infoProperties["valuesAndTaxes"].length; i++) {
         var item = infoProperties["valuesAndTaxes"][i];
-        html += "<tr><td>" + item["lp"] + "</td><td style='width: 70mm;'>" + item["name"] + "</td><td>" + item["quantity"] + "</td><td>" + item["unit-of-measure"] +  "</td><td>" + item["net-price"] + "</td><td>" + item["net-value"] + "</td><td>" + item["vat-rate"] + "</td><td>" + item["vat-amount"] + "</td><td>" + item["gross-amount"] + "</td></tr>"
+        html += "<tr><td>" + item["lp"] + "</td><td style='width: 70mm;'>" + item["name"] + "</td><td>" + item["quantity"] + "</td><td>" + item["unit-of-measure"] +  "</td><td>" + item["net-price"] + "</td><td>" + item["net-amount"] + "</td><td>" + item["vat-rate"] + "</td><td>" + item["vat-amount"] + "</td><td>" + item["gross-amount"] + "</td></tr>"
     }
 
     rawHtml = rawHtml.toString().replace("{{data-rows}}", html);
