@@ -39,6 +39,13 @@ class ParseNopCsv {
 			}
 			// z is on 26th place in excel file
 			entity["sell-date"] = this.fromOADate(orderRecordsArray[i][29]);
+			entity["place-of-issue"] = "Kielce";
+			entity["issue-date"] = entity["sell-date"];
+			entity["original-copy"] = "Oryginał";
+			entity["seller-info-1"] = " ";
+			entity["seller-info-2"] = orderRecordsArray[i][33];
+			entity["seller-info-3"] = orderRecordsArray[i][30] + " " + orderRecordsArray[i][31];
+
 			// take order details
 		}
 		
