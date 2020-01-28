@@ -1,4 +1,4 @@
-const money = require('./money/moneyHandler')
+const money = require('./moneyHandler')
 
 class InvoiceCalculator {
     static calculateNet(gross, vatRate) {
