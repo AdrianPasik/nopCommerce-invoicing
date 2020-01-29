@@ -58,11 +58,6 @@ class ParseNopCsv {
 	}
 }
 
-var ordersCsv = fs.readFileSync('C:\\praca\\orders.csv', 'utf8');
-
-var x = ParseNopCsv.fromOADate(Number("43797.5599752083"));
-
-var records = ParseNopCsv.getInvoicesSync(ordersCsv);
 
 module.exports = ParseNopCsv;
 

@@ -7,7 +7,7 @@ import FileUpload from './FileUpload';
 	render() {
 	  return (
 		<div>
-			<h2> File upload </h2>
+			<h2> Załaduj plik CSV z NopCommerce'a </h2>
 			<FileUpload />
       	</div>
 	  );

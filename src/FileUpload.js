@@ -14,7 +14,8 @@ class FileUpload extends React.Component {
   handleUploadImage(ev) {
     ev.preventDefault();
     const data = new FormData();
-    data.append('file', this.uploadInput.files[0]);
+	data.append('file', this.uploadInput.files[0]);
+	this.setState({invoiceJson: ""});
 
     fetch('http://localhost:3001/invoiceupload', {
 	  method: 'POST',
@@ -39,7 +40,7 @@ class FileUpload extends React.Component {
         <div>
           <button>Upload</button>
         </div>
-        <span>Uploaded {this.state.invoiceJson}</span>
+        <span>{this.state.invoiceJson}</span>
       </form>
     );
   }

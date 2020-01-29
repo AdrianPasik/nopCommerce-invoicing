@@ -4,6 +4,7 @@ const app = express()
 const port = 3001
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
+const nopCsvParser = require('./csv/parse-nop-csv');
 
 let infoProperties = {
     "sell-date": "33/10/2019",
@@ -117,7 +118,8 @@ app.get('/faktura', (req, response) => {
 });
 
 app.post('/invoiceupload', (req, response) => {
-    response.write(req.files.file.data.toString());
+	let parsedValue = nopCsvParser.getInvoicesSync(req.files.file.data.toString());
+    response.write(JSON.stringify(parsedValue));
 	response.end();
 	console.log("response send");
 });
