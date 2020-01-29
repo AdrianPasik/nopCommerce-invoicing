@@ -3,6 +3,7 @@ const fs = require('fs')
 const app = express()
 const port = 3001
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
 
 let infoProperties = {
     "sell-date": "33/10/2019",
@@ -98,6 +99,7 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions));
+app.use(fileUpload());
 
 app.get('/faktura', (req, response) => {
     fs.readFile("templates/pl-sales-template.html", function (err, data) {
@@ -115,7 +117,7 @@ app.get('/faktura', (req, response) => {
 });
 
 app.post('/invoiceupload', (req, response) => {
-    response.write('file uploaded');
+    response.write(req.files.file.data.toString());
 	response.end();
 	console.log("response send");
 });

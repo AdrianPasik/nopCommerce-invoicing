@@ -21,13 +21,14 @@
   },
   "homepage": "https://github.com/AdrianPasik/a4-invoice#readme",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.4.0",
+    "@testing-library/user-event": "7.2.1",
     "axios": "0.19.2",
     "cors": "^2.8.5",
     "csv-parse": "4.8.5",
     "express": "4.17.1",
+    "express-fileupload": "1.1.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0"
