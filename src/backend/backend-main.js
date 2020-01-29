@@ -2,6 +2,7 @@ const express = require('express')
 const fs = require('fs')
 const app = express()
 const port = 3001
+const cors = require('cors');
 
 let infoProperties = {
     "sell-date": "33/10/2019",
@@ -84,6 +85,20 @@ function applyTotalRows(rawHtml) {
     return rawHtml;
 }
 
+// Set up a whitelist and check against it:
+var whitelist = ['http://localhost:3000']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions));
+
 app.get('/faktura', (req, response) => {
     fs.readFile("templates/pl-sales-template.html", function (err, data) {
         for (var prop in infoProperties) {
@@ -99,9 +114,10 @@ app.get('/faktura', (req, response) => {
      });
 });
 
-app.post('/fileupload', (req, response) => {
-    response.req.write('file uploaded');
-    response.end();
+app.post('/invoiceupload', (req, response) => {
+    response.write('file uploaded');
+	response.end();
+	console.log("response send");
 });
 
 app.get('/upload', (req, response) => {
