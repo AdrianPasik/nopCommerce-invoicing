@@ -121,7 +121,6 @@ app.post('/invoiceupload', (req, response) => {
 	let parsedValue = nopCsvParser.getInvoicesSync(req.files.file.data.toString());
     response.write(JSON.stringify(parsedValue));
 	response.end();
-	console.log("response send");
 });
 
 app.get('/upload', (req, response) => {

@@ -6,9 +6,12 @@ class FileUpload extends React.Component {
 
     this.state = {
       invoiceJson: '',
-    };
+	};
+	
+	this.parsedOrders = {};
 
-    this.handleUploadImage = this.handleUploadImage.bind(this);
+	this.handleUploadImage = this.handleUploadImage.bind(this);
+	this.handleClearMessage = this.handleClearMessage.bind(this);
   }
 
   handleUploadImage(ev) {
@@ -30,18 +33,26 @@ class FileUpload extends React.Component {
     });
   }
 
+  handleClearMessage(ev) {
+	  ev.preventDefault();
+	  this.setState({invoiceJson: ""});
+  }
+
   render() {
     return (
-      <form onSubmit={this.handleUploadImage}>
-        <div>
-          <input ref={(ref) => { this.uploadInput = ref; }} type="file" />
-        </div>
-        <br />
-        <div>
-          <button>Upload</button>
-        </div>
-        <span>{this.state.invoiceJson}</span>
-      </form>
+		<div>
+			<form onSubmit={this.handleUploadImage}>
+				<div>
+				<input ref={(ref) => { this.uploadInput = ref; }} type="file" />
+				</div>
+				<br />
+				<div>
+				<button>Upload</button>
+				</div>
+				<span>{this.state.invoiceJson}</span>
+			</form>
+			<button onClick={this.handleClearMessage}>Remove reponse message</button>
+		</div>
     );
   }
 }

@@ -15,7 +15,7 @@ class ParseNopCsv {
 
 		orderCollection.push(this.getOneEntity(orderRecords, 0));
 
-		return orderRecords;
+		return orderCollection;
 	}
 
 	static parseCSV(rawCSV) {
@@ -48,6 +48,8 @@ class ParseNopCsv {
 
 			// take order details
 		}
+
+		return entity;
 		
 	}
 
