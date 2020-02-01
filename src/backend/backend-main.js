@@ -62,7 +62,6 @@ let infoProperties = {
         "grand-total-gross": "6,15"
     }
 ]
-
 };
 
 function applyDataRows(rawHtml) {
@@ -132,6 +131,7 @@ app.get('/upload', (req, response) => {
     response.write('</form>');
     response.end();
 });
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
