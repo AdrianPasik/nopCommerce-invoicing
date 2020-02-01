@@ -1,6 +1,6 @@
 const currency = require('../external/currency.min.js')
 
-class Money {
+class MoneyMath {
     static Add(first, second) {
         return currency(first).add(second).value;
     }
@@ -18,4 +18,4 @@ class Money {
     }
 }
 
-module.exports = Money;
+module.exports = MoneyMath;
