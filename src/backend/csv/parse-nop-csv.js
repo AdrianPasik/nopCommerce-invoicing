@@ -4,17 +4,14 @@ const fs = require('fs');
 const moneyMath = require('../money/moneyMath');
 
 class ParseNopCsv {
-	static getInvoicesSync(orderCSV, configuration) {
+	static getInvoicesSync(orderCSV) {
 		const orderRecords = this.parseCSV(orderCSV);
 
 		if (orderRecords.lenght == 0 || orderRecords.lenght == 1) {
 			return { };
 		}
-		let orderCollection = [];
 
-		orderCollection.push(this.getEntities(orderRecords, configuration));
-
-		return orderCollection;
+		return this.getEntities(orderRecords);
 	}
 
 	static parseCSV(rawCSV) {
@@ -23,10 +20,7 @@ class ParseNopCsv {
 		  });
 	}
 
-	static getEntities(orderRecordsArray, configuration) {
-		if(!configuration.vatRate) {
-			configuration.vatRate = 23;
-		}
+	static getEntities(orderRecordsArray) {
 		// take order
 		
 		let entities = [];
@@ -39,10 +33,11 @@ class ParseNopCsv {
 
 			let entity = {};
 			// z is on 26th place in excel file
+			entity["guid"] = orderRecordsArray[i][2];
 			entity["sell-date"] = this.fromOADate(orderRecordsArray[i][29]);
-			entity["place-of-issue"] = configuration.City;
+			entity["place-of-issue"] = "";
 			entity["issue-date"] = entity["sell-date"];
-			entity["original-copy"] = configuration.OriginalOrCopy;
+			entity["original-copy"] = "";
 			entity["seller-info-1"] = " ";
 			entity["seller-info-2"] = orderRecordsArray[i][33];
 			entity["seller-info-3"] = orderRecordsArray[i][30] + " " + orderRecordsArray[i][31];
@@ -53,22 +48,21 @@ class ParseNopCsv {
 					break;
 				}
 				entity["valuesAndTaxes"] = [];
-				let netPrice = invoiceCalculator.calculateNet(orderRecordsArray[j][5], configuration.vatRate);
-				let netValue = moneyMath.Multiply(netPrice, orderRecordsArray[j][6]);
+				//let netPrice = invoiceCalculator.calculateNet(orderRecordsArray[j][5], configuration.vatRate);
+				//let netValue = moneyMath.Multiply(netPrice, orderRecordsArray[j][6]);
 				entity["valuesAndTaxes"].push({
 					"id": 1,
 					"name": orderRecordsArray[j][2],
 					"quantity": orderRecordsArray[j][6],
-					"unit-of-measure": configuration.pieces,
-					"net-price": netPrice,
-					"net-value": moneyMath.Multiply(netPrice, orderRecordsArray[j][6]),
-					"vat-rate": configuration.vatRate,
-					"vat-amount": invoiceCalculator.calculateVat(netValue, configuration.vatRate),
+					"unit-of-measure": "",
+					"net-price": "",
+					"net-value": "", //moneyMath.Multiply(netPrice, orderRecordsArray[j][6]),
+					"vat-rate": "",
+					"vat-amount": "",// invoiceCalculator.calculateVat(netValue, configuration.vatRate),
 					"gross-amount": orderRecordsArray[j][5]
 				});
 				j++;
 			}
-			this.calculateTotals(entity)
 
 			entities.push(entity);
 
@@ -77,10 +71,6 @@ class ParseNopCsv {
 
 		return entities;
 		
-	}
-
-	static calculateTotals(entity, parsedRow) {
-
 	}
 
 	static fromOADate(dateAsFloat) {

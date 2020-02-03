@@ -5,7 +5,8 @@ class FileUpload extends React.Component {
     super(props);
 
     this.state = {
-      invoiceJson: '',
+	  invoiceJson: '',
+	  invoicesParsed: false
 	};
 	
 	this.parsedOrders = {};
@@ -25,7 +26,7 @@ class FileUpload extends React.Component {
       body: data,
     }).then((response) => {
 		response.text().then((text) => {
-			console.log(text);
+			this.setState({invoicesParsed: true});
 			this.setState({invoiceJson: text});
 		});
 		
@@ -49,9 +50,24 @@ class FileUpload extends React.Component {
 				<div>
 				<button>Upload</button>
 				</div>
-				<span>{this.state.invoiceJson}</span>
 			</form>
 			<button onClick={this.handleClearMessage}>Remove reponse message</button>
+			{
+				this.state.invoicesParsed ? (
+					<div>
+						<h2>Invoices </h2>
+						<div>
+							<span>{this.state.invoiceJson}</span>
+							{
+								JSON.parse(this.state.invoiceJson).map((element) => <button>{element["guid"]}</button>
+							)}
+						</div>
+					</div>
+				) : (<div></div>)
+			}
+			
+			
+			
 		</div>
     );
   }
