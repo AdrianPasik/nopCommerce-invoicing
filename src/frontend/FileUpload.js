@@ -57,10 +57,9 @@ class FileUpload extends React.Component {
 					<div>
 						<h2>Invoices </h2>
 						<div>
-							<span>{this.state.invoiceJson}</span>
 							{
-								JSON.parse(this.state.invoiceJson).map((element) => <button>{element["guid"]}</button>
-							)}
+								this.state.invoiceJson != "" ? JSON.parse(this.state.invoiceJson).map((element) => <button>{element["guid"]}</button>): <div></div>
+							}
 						</div>
 					</div>
 				) : (<div></div>)
