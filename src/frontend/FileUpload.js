@@ -3,11 +3,13 @@ import PrintInvoice from './PrintInvoice'
 
 class FileUpload extends React.Component {
   constructor(props) {
-    super(props);
+	super(props);
+	
 
     this.state = {
 	  invoiceJson: '',
-	  invoicesParsed: false
+	  invoicesParsed: false,
+	  configuration: {}
 	};
 	
 	

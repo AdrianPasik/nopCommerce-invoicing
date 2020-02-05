@@ -64,10 +64,10 @@ let infoProperties = {
 ]
 };
 
-function applyDataRows(rawHtml) {
+function applyDataRows(rawHtml, objectWithDataRows) {
     var html = "";
-    for (var i = 0; i < infoProperties["valuesAndTaxes"].length; i++) {
-        var item = infoProperties["valuesAndTaxes"][i];
+    for (var i = 0; i < objectWithDataRows["valuesAndTaxes"].length; i++) {
+        var item = objectWithDataRows["valuesAndTaxes"][i];
         html += "<tr><td>" + item["lp"] + "</td><td style='width: 70mm;'>" + item["name"] + "</td><td>" + item["quantity"] + "</td><td>" + item["unit-of-measure"] +  "</td><td>" + item["net-price"] + "</td><td>" + item["net-value"] + "</td><td>" + item["vat-rate"] + "</td><td>" + item["vat-amount"] + "</td><td>" + item["gross-amount"] + "</td></tr>"
     }
 
@@ -75,10 +75,10 @@ function applyDataRows(rawHtml) {
     return rawHtml;
 }
 
-function applyTotalRows(rawHtml) {
+function applyTotalRows(rawHtml, objectWithTotalRows) {
     var html = "";
-    for (var i = 0; i < infoProperties["totalSum"].length; i++) {
-        var item = infoProperties["totalSum"][i];
+    for (var i = 0; i < objectWithTotalRows["totalSum"].length; i++) {
+        var item = objectWithTotalRows["totalSum"][i];
         html += "<tr><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td class='no-border'></td><td>" + item["grand-total-caption"] + "</td><td>" + item["grand-total-net"] + "</td><td>" + item["grand-total-vat-rate"] + "</td><td>" + item["grand-total-vat"] + "</td><td>" + item["grand-total-gross"] + "</td></tr>"
     }
 
@@ -108,8 +108,8 @@ app.post('/faktura', (req, response) => {
                 data = data.toString().replace("{{" + prop + "}}", infoProperties[prop]);
             }
         }
-        data = applyDataRows(data);
-        data = applyTotalRows(data);
+        data = applyDataRows(data, infoProperties);
+        data = applyTotalRows(data, infoProperties);
         response.writeHead(200, {'Content-Type': 'text/html'});
         response.write(data);
         response.end();

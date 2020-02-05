@@ -17,7 +17,7 @@ class PrintInvoice extends React.Component {
 
 		fetch('http://localhost:3001/faktura', {
 			method: 'POST',
-			body: "",
+			body: this.state.configuration,
 		}).then((response) => {
 			response.text().then((text) => {
 				var w = window.open('about:blank');
@@ -25,8 +25,6 @@ class PrintInvoice extends React.Component {
 				w.document.write(text);
 				w.document.close();
 			});
-			
-			
 		});
 	}
 
@@ -34,7 +32,7 @@ class PrintInvoice extends React.Component {
 		return (
 			<div>
 				<span>Order Id {JSON.parse(this.state.invoice)["guid"]}</span>
-				<a target="_blank" rel="external" onClick={this.printInvoice}>Print invoice</a>
+				<button onClick={this.printInvoice}>Print invoice</button>
 				<span>{this.state.invoiceResult}</span>
 			</div>
 		)
