@@ -101,8 +101,8 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(fileUpload());
 
-app.get('/faktura', (req, response) => {
-    fs.readFile("templates/pl-sales-template.html", function (err, data) {
+app.post('/faktura', (req, response) => {
+    fs.readFile("src/backend/templates/pl-a4-template1.html", function (err, data) {
         for (var prop in infoProperties) {
             if (infoProperties.hasOwnProperty(prop)) {
                 data = data.toString().replace("{{" + prop + "}}", infoProperties[prop]);

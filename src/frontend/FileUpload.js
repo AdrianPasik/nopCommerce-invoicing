@@ -1,4 +1,5 @@
 import React from 'react';
+import PrintInvoice from './PrintInvoice'
 
 class FileUpload extends React.Component {
   constructor(props) {
@@ -9,10 +10,10 @@ class FileUpload extends React.Component {
 	  invoicesParsed: false
 	};
 	
+	
 	this.parsedOrders = {};
 
 	this.handleUploadImage = this.handleUploadImage.bind(this);
-	this.handleClearMessage = this.handleClearMessage.bind(this);
   }
 
   handleUploadImage(ev) {
@@ -34,11 +35,6 @@ class FileUpload extends React.Component {
     });
   }
 
-  handleClearMessage(ev) {
-	  ev.preventDefault();
-	  this.setState({invoiceJson: ""});
-  }
-
   render() {
     return (
 		<div>
@@ -51,22 +47,18 @@ class FileUpload extends React.Component {
 				<button>Upload</button>
 				</div>
 			</form>
-			<button onClick={this.handleClearMessage}>Remove reponse message</button>
 			{
 				this.state.invoicesParsed ? (
 					<div>
 						<h2>Invoices </h2>
 						<div>
 							{
-								this.state.invoiceJson != "" ? JSON.parse(this.state.invoiceJson).map((element) => <button>{element["guid"]}</button>): <div></div>
+								this.state.invoiceJson != "" ? JSON.parse(this.state.invoiceJson).map((element) => <PrintInvoice invoice={JSON.stringify(element)}>{element["guid"]}</PrintInvoice>): <div></div>
 							}
 						</div>
 					</div>
 				) : (<div></div>)
 			}
-			
-			
-			
 		</div>
     );
   }
