@@ -102,6 +102,9 @@ app.use(cors(corsOptions));
 app.use(fileUpload());
 
 app.post('/faktura', (req, response) => {
+	let invoiceTemplate = req.body["invoiceTemplate"];
+	let configuration = req.body["configuration"];
+
     fs.readFile("src/backend/templates/pl-a4-template1.html", function (err, data) {
         for (var prop in infoProperties) {
             if (infoProperties.hasOwnProperty(prop)) {
@@ -117,19 +120,9 @@ app.post('/faktura', (req, response) => {
 });
 
 app.post('/invoiceupload', (req, response) => {
-	let parsedValue = nopCsvParser.getInvoicesSync(req.files.file.data.toString(), {}); // TODO: add configuration
+	let parsedValue = nopCsvParser.parseInvoices(req.files.file.data.toString(), {}); // TODO: add configuration
     response.write(JSON.stringify(parsedValue));
 	response.end();
-});
-
-app.get('/upload', (req, response) => {
-    console.log('reached upload');
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
-    response.write('<input type="file" name="csvfile"><br>');
-    response.write('<input type="submit">');
-    response.write('</form>');
-    response.end();
 });
 
 

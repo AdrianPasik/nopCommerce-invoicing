@@ -9,7 +9,10 @@ class FileUpload extends React.Component {
     this.state = {
 	  invoiceJson: '',
 	  invoicesParsed: false,
-	  configuration: {}
+	  configuration: {
+		  city: "",
+		  original: "",
+	  }
 	};
 	
 	

@@ -4,7 +4,7 @@ const fs = require('fs');
 const moneyMath = require('../money/moneyMath');
 
 class ParseNopCsv {
-	static getInvoicesSync(orderCSV) {
+	static parseInvoices(orderCSV) {
 		const orderRecords = this.parseCSV(orderCSV);
 
 		if (orderRecords.lenght == 0 || orderRecords.lenght == 1) {
